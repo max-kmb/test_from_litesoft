@@ -9,6 +9,8 @@ select a.id, a.name from category a  left join category b on a.id = b. parent_ca
 
 2.
 select a.id, a.name from category a join category b on a.id = b.parent_category_id group by b.parent_category_id having count(b.parent_category_id)<=3;
+a.
+select a.id, a.name, count(b.parent_category_id) as count_ids from category a join category b on a.id = b.parent_category_id group by b.parent_category_id having count_ids<=3;
 
 3.
 select a.id, a.name from category a  left join category b on a.id = b. parent_category_id where b.id is NULL;
