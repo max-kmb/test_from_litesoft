@@ -1,5 +1,9 @@
 1.
 mysql> select * from category where left(name, 4) like '%авто%' and parent_category_id is NULL;
+a.
+mysql> select * from category where left(name, 4) like 'авто' and parent_category_id is NULL;
+b.
+mysql> select a.id, a.name from category a  left join category b on a.id = b. parent_category_id where b.id is NOT NULL and left(a.name, 4) like 'авто';
 
 2.
 mysql> select a.id, a.name from category a join category b on a.id = b.parent_category_id group by b.parent_category_id having count(b.parent_category_id)<=3;
